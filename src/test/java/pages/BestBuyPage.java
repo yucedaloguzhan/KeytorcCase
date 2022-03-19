@@ -63,12 +63,10 @@ public abstract class BestBuyPage {
 
 
     public void sendSamsung(){
-
         searchBox.sendKeys(ConfigReader.getProperty("BrandName"));
         searchButton.click();
         Assert.assertTrue(samsungText.isDisplayed());
-        computersSection.click();
-    }
+        computersSection.click();}
 
     @FindBy(xpath = "//a[@aria-label='Results Page 2']")
     public WebElement buttonTwo;
@@ -76,11 +74,8 @@ public abstract class BestBuyPage {
     @FindBy(xpath = "//div[@class='left-side']")
     public WebElement secondPageAssertionText;
 
-
     public void secondPageAssertions(){
-
         buttonTwo.click();
-
         String actual=secondPageAssertionText.getText();
         String expected="25-48 of 265 items";
         actual.contains(expected);}
@@ -88,7 +83,7 @@ public abstract class BestBuyPage {
        @FindBy(xpath = "(//button[@class='c-button c-button-primary c-button-sm c-button-block c-button-icon c-button-icon-leading add-to-cart-button'])[3]")
           public WebElement favoriteAndSaveButton;
 
-           public void addToFavorites() throws InterruptedException {
+          public void addToFavorites() throws InterruptedException {
                Thread.sleep(3000);
                Actions actions=new Actions(Driver.getDriver());
                actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
@@ -124,7 +119,6 @@ public abstract class BestBuyPage {
 
        @FindBy(xpath = "//h3[@class='zero-state-headline']")
        public WebElement checkingList;
-
 
        public void checkingIfTheListEmpty(){
            ReusableMethods.waitFor(1);
